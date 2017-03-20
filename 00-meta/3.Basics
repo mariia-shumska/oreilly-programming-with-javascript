@@ -1,0 +1,18 @@
+console.log("hello world");
+VM63:1 hello world
+undefined
+console.log("hello JavaScript");
+VM117:1 hello JavaScript
+undefined
+//this is a comment
+undefined
+// this is another comment
+undefined
+5 + 2
+7
+5+2
+7
+20+200
+220
+5*2
+10
