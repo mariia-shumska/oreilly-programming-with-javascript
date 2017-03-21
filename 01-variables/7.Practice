@@ -1,0 +1,102 @@
+var m;
+undefined
+console.log(m);
+VM1751:1 undefined
+undefined
+var &m
+VM1761:1 Uncaught SyntaxError: Unexpected token &
+var m&
+VM1765:1 Uncaught SyntaxError: Unexpected token &
+var m@
+VM1771:1 Uncaught SyntaxError: Invalid or unexpected token
+var m@;
+VM1773:1 Uncaught SyntaxError: Invalid or unexpected token
+var m$*);
+VM1782:1 Uncaught SyntaxError: Unexpected token *
+var name = "Mariia";
+undefined
+var greeting = 'Hello, ' + name;
+undefined
+console.log(greeting);
+VM1860:1 Hello, Mariia
+undefined
+var greeting = 'Hello, ' + name + '!';
+undefined
+console.log(greeting);
+VM1871:1 Hello, Mariia!
+undefined
+var hourly_wage;
+undefined
+var numberOfHours;
+undefined
+hourly_wage = 133
+133
+numberOfHours = 7
+7
+var totalWage = hourly_wage * numberOfHours;
+undefined
+console.log(totalWage);
+VM2041:1 931
+undefined
+age =26
+26
+var age = 26;
+undefined
+var someText = "I'm " + age + " years old";
+undefined
+console.log(someText)
+VM2153:1 I'm 26 years old
+undefined
+a = 3333/100
+33.33
+Math.round(5,999909)
+5
+Math.round(5.999909)
+6
+Math.round(5.939909)
+6
+Math.round(5.539909)
+6
+Math.round(5.439909)
+5
+Math.round(5.5139909)
+6
+Math.round(5.5134534*100)/100
+5.51
+Math.round(5.5134534,1)
+6
+Math.round(5.5134534,-11)
+6
+Math.round(5.5134534,-2)
+6
+Math.round10(5.5134534,1)
+VM2199:1 Uncaught TypeError: Math.round10 is not a function
+    at <anonymous>:1:6
+(anonymous) @ VM2199:1
+Math.round100(5.5134534,2)
+VM2202:1 Uncaught TypeError: Math.round100 is not a function
+    at <anonymous>:1:6
+(anonymous) @ VM2202:1
+var html = "This is a paragraph!";
+undefined
+var someHtml = "<p>" + html + "</p>";
+undefined
+console.log(someHtml);
+VM2309:1 <p>This is a paragraph!</p>
+undefined
+var tweet = "hello world!";
+undefined
+var count = 0;
+undefined
+count = count + 10;
+10
+tweet = tweet + count;
+"hello world!10"
+count = count * 10;
+100
+tweet = count + tweet;
+"100hello world!10"
+count = count*100;
+10000
+tweet = tweet + ". this is another sentence.";
+"100hello world!10. this is another sentence."
