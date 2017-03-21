@@ -1,0 +1,99 @@
+console.log("heello world")
+VM164:1 heello world
+undefined
+var suit
+undefined
+var card;
+undefined
+var 1card;
+VM224:1 Uncaught SyntaxError: Unexpected number
+var card1;
+undefined
+suit = "hearts";
+"hearts"
+
+console.log(suits);
+VM300:1 Uncaught ReferenceError: suits is not defined
+    at <anonymous>:1:13
+(anonymous) @ VM300:1
+console.log(suit);
+VM303:1 hearts
+undefined
+var greeting;
+undefined
+greeting= "hello world!";
+"hello world!"
+greeting= 'hello world!';
+"hello world!"
+console.log
+function log() { [native code] }
+console.log(greeting)
+VM361:1 hello world!
+undefined
+var name;
+undefined
+name = "Mariia";
+"Mariia"
+console.log(name);
+VM423:1 Mariia
+undefined
+var anotherName = "Emily";
+undefined
+console.log(anotherName);
+VM505:1 Emily
+undefined
+console.log("Hello" + "World)";
+VM529:1 Uncaught SyntaxError: missing ) after argument list
+console.log("Hello" + "World");
+VM532:1 HelloWorld
+undefined
+"Hello" + "world"
+"Helloworld"
+var concat = "Hello" + "world!";
+undefined
+console.log(con)
+VM603:1 Uncaught ReferenceError: con is not defined
+    at <anonymous>:1:13
+(anonymous) @ VM603:1
+console.log(concat)
+VM614:1 Helloworld!
+undefined
+var concat = "Hello " + "world!";
+undefined
+console.log(concat)
+VM619:1 Hello world!
+undefined
+name
+"Mariia"
+greeting
+"hello world!"
+greeting = "Hello, " + name;
+"Hello, Mariia"
+console.log(greeting)
+VM686:1 Hello, Mariia
+undefined
+var name2;
+undefined
+name2 = "Vasyl";
+"Vasyl"
+var greet;
+undefined
+greet = "Hello, " + name2
+"Hello, Vasyl"
+console.log(greet)
+VM788:1 Hello, Vasyl
+undefined
+var tweep = "@semmypurewal";
+undefined
+console.log(tweep);
+VM828:1 @semmypurewal
+undefined
+var message = "hey, I need some help with programming!";
+undefined
+console.log(message);
+VM881:1 hey, I need some help with programming!
+undefined
+var tweet = tweep + ": " + message
+undefined
+console.log(tweet);
+VM952:1 @semmypurewal: hey, I need some help with programming!

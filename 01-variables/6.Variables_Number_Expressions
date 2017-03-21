@@ -1,0 +1,53 @@
+var age = 8;
+undefined
+age
+8
+console.log(age);
+VM1007:1 8
+undefined
+var facebokMessage = "You're only " + age + ", too young for Facebook"
+undefined
+console.log(facebokMessage);
+VM1104:1 You're only 8, too young for Facebook
+undefined
+var burritoPrice = 5.99;
+undefined
+var taxRate = 0.09;
+undefined
+burritoPrice*taxRate;
+0.5391
+var totalTax = burritoPrice*taxRate;
+undefined
+console.log(totalTax);
+VM1244:1 0.5391
+undefined
+var totalBurritoPrice = burritoPrice + totalTax;
+undefined
+totalBurritoPrice
+6.529100000000001
+console.log(totalBurritoPrice);
+VM1364:1 6.529100000000001
+undefined
+var totalBurritoPrice5;
+undefined
+burritoPrice*5
+29.950000000000003
+totalBurritoPrice5 = totalBurritoPrice*5;
+32.645500000000006
+console.log(totalBurritoPrice5);
+VM1476:1 32.645500000000006
+undefined
+var numberOfburitos = 5;
+undefined
+var FiveBurritosTotalPrice = totalBurritoPrice * numberOfburitos
+undefined
+console.log(FiveBurritosTotalPrice);
+VM1668:1 32.645500000000006
+undefined
+var numberOfburitos = 10;
+undefined
+var TenBurritosTotalPrice = totalBurritoPrice * numberOfburitos
+undefined
+console.log(TenBurritosTotalPrice);
+VM1705:1 65.29100000000001
+undefined
