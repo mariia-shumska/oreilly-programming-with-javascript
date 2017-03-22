@@ -1,0 +1,58 @@
+var burritoPrice = 5.99;
+undefined
+var taxRate = 0.09;
+undefined
+var superBurritoPrice = 9.99;
+undefined
+var gigaBurritoPrice = 249.99;
+undefined
+var totalBurritoPrice = burritoPrice*taxRate + burritoPrice;
+undefined
+console.log (totalBurritoPrice);
+VM301:1 6.529100000000001
+undefined
+var totalSuperBurritoPrice = superBurritoPrice*taxRate + superBurritoPrice;
+undefined
+console.log (totalSuperBurritoPrice);
+VM351:1 10.889100000000001
+undefined
+totalWithTax(taxRate, burritoPrice);
+VM399:1 Uncaught ReferenceError: totalWithTax is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM399:1
+
+var content = "hello worlld";
+undefined
+var openTag = "<p>";
+undefined
+var closeTag = "<p>";
+undefined
+var htmlElement = openTag + content + closeTag
+undefined
+console.log(htmlElement);
+VM636:1 <p>hello worlld<p>
+undefined
+makeHtmlElement("div", "hello world");
+VM674:1 Uncaught ReferenceError: makeHtmlElement is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM674:1
+
+var addThree = function(a,b,c) {
+return a + b + c;
+}
+
+
+undefined
+addThree (5,10,20);
+35
+addThree (burritoPrice, superBurritoPrice, gigaBurritoPrice);
+265.97
+var totalWithTax = function (taxRate, price) {
+    var result = price*taxRate + price
+    return result;
+}
+undefined
+totalWithTax(0.05, 99.99);
+104.98949999999999
+totalWithTax(0.10, 85.00);
+93.5
