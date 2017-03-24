@@ -1,0 +1,163 @@
+var isCard = true;
+undefined
+console.log(isCard);
+VM1454:1 true
+undefined
+typeof isCard
+"boolean"
+isCard = "true"
+"true"
+typeof isCard
+"string"
+var isATweet = false;
+undefined
+console.log(isATweet);
+VM1538:1 false
+undefined
+typeof isATweet
+"boolean"
+typeof true
+"boolean"
+typeof false
+"boolean"
+typeof "false"
+"string"
+5<7
+true
+var fiveLessThanSeven = 5<7;
+undefined
+typeof fiveLessThanSeven
+"boolean"
+fiveLessThanSeven
+true
+typeof 5<7
+false
+typeof (5<7)
+"boolean"
+5 === 7
+false
+7 === 7
+true
+7 !== 7
+false
+7 !== 5
+true
+7 <= 5
+false
+5 <= 5
+true
+5 >= 5
+true
+5 >= 3
+true
+"zebra" < "aardvark"
+false
+"zebra" > "aardvark"
+true
+"Zebra" > "aardvark"
+false
+"A" > "a"
+false
+"Z"<"a"
+true
+"z"<"a"
+false
+"a" < "a"
+false
+"aa" < "a"
+false
+"a" < "aardvark"
+true
+var age = 25;
+undefined
+age> o
+VM1750:1 Uncaught ReferenceError: o is not defined
+    at <anonymous>:1:6
+(anonymous) @ VM1750:1
+age > 0
+true
+age < 18
+false
+0 < age && age <=18
+false
+age = 15
+15
+0 < age && age <=18
+true
+var message = "hello";
+undefined
+typeof message
+"string"
+typeof message = "string"
+VM1849:1 Uncaught ReferenceError: Invalid left-hand side in assignment
+typeof message === "string"
+true
+typeof message === "number"
+false
+typeof message === number
+VM1867:1 Uncaught ReferenceError: number is not defined
+    at <anonymous>:1:20
+(anonymous) @ VM1867:1
+typeof message === "string" || typeof message === "number"
+true
+message = 5
+5
+typeof message === number
+VM1886:1 Uncaught ReferenceError: number is not defined
+    at <anonymous>:1:20
+(anonymous) @ VM1886:1
+typeof message === "number"
+true
+typeof message === "string"
+false
+typeof message === "string" || typeof message === "number"
+true
+message = false
+false
+typeof message === "string" || typeof message === "number"
+false
+typeof message === "string" || typeof message === "number" || typeof message === "boolean"
+true
+message = function() {};
+function () {}
+typeof message === "string" || typeof message === "number" || typeof message === "boolean"
+false
+typeof message === "string" || typeof message === "number" || typeof message === "boolean" || typeof message === "function"
+true
+false || true
+true
+!true
+false
+!false
+true
+!(typeof message === "string" || typeof message === "number" || typeof message === "boolean")
+true
+var potentialTweet = "This might be a tweet, bt it might be too long";
+undefined
+potentialTweet.length
+46
+potentialTweet.length <= 140
+true
+potentialTweet.indexOf("lol")
+-1
+potentialTweet.indexOf("tweet") !== -1 && potentialTweet.indexOf("lol") !== -1
+false
+var potentialTweet = "This might be a tweet, bt it might be too long, lol";
+undefined
+potentialTweet.indexOf("tweet") !== -1 && potentialTweet.indexOf("lol") !== -1
+true
+potentialTweet.length <= 140 && potentialTweet.indexOf > -1;
+false
+
+potentialTweet.length <= 140 && potentialTweet.indexOf("lol") > -1;
+true
+potentialTweet.indexOf
+function indexOf() { [native code] }
+var potentialTweet = "This might be a tweet, bt it might be too long";
+undefined
+potentialTweet.length <= 140 && potentialTweet.indexOf("lol") > -1;
+false
+var potentialTweet = "This might be a tweet, bt it might be too long, lol";
+undefined
+potentialTweet.length <= 140 && potentialTweet.indexOf("lol") > -1;
+true

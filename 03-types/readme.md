@@ -449,14 +449,19 @@ all the techniques learned in this section.
 What are the types of the following values?
 
     typeof true;
+//=> "boolean"
 
     typeof "true";
+//=>  "string"
 
     typeof 1;
+//=> "number"
 
     typeof "1";
+//=> "string"
 
     typeof "one";
+//=> "string"
 
 
 2. Using the Chrome JavaScript console, practice with string methods. If you
