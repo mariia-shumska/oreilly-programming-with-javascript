@@ -1,0 +1,82 @@
+var greeting = 'Hello!';
+undefined
+greeting.toUpperCase()
+"HELLO!"
+toUpperCase("mmm")
+VM566:1 Uncaught ReferenceError: toUpperCase is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM566:1
+greeting.toLowerCase()
+"hello!"
+"Hello".toUpperCase()
+"HELLO"
+"Hello".toLowerCase()
+"hello"
+var tweet = "hello this is a tweet lol";
+undefined
+console.log(tweet)
+VM683:1 hello this is a tweet lol
+undefined
+tweet.indexOf(tweet);
+0
+tweet.indexOf("tweet");
+16
+tweet.indexOf("hello");
+0
+tweet.indexOf("this");
+6
+tweet.indexOf("lol");
+22
+tweet.indexOf("tweetter");
+-1
+tweet.slice(16)
+"tweet lol"
+tweet.slice(16, 20)
+"twee"
+tweet.slice(16, 21)
+"tweet"
+tweet.length
+25
+"hello".length
+5
+tweet.charAt(0)
+"h"
+tweet.charAt(1)
+"e"
+tweet.charAt(-1)
+""
+tweet.charAt(tweet.length-1)
+"l"
+tweet.slice(10);
+" is a tweet lol"
+tweet.slice(10).toUpperCase();
+" IS A TWEET LOL"
+tweet.slice(10).toUpperCase().slice(4);
+"A TWEET LOL"
+tweet.slice(10).toUpperCase().slice(4).toLowerCase();
+"a tweet lol"
+var str;
+undefined
+var str = "hello world";
+undefined
+str
+"hello world"
+str.slice(str.length-4).toUpperCase()
+"ORLD"
+str.slice(str.length-3).toUpperCase()
+"RLD"
+
+tweet.slice(tweet.length-3).toUpperCase()
+"LOL"
+tweet
+"hello this is a tweet lol"
+
+var lastThreeLetters = tweet.slice(tweet.length - 3);
+undefined
+lastThreeLetters
+"lol"
+
+var capitalized = lastThreeLetters.toUpperCase();
+undefined
+capitalized
+"LOL"

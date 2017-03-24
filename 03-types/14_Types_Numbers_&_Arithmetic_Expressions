@@ -1,0 +1,94 @@
+3*3*3
+27
+Math.pow(3,3);
+27
+Math.pow(2,10);
+1024
+Math.pow(2,20);
+1048576
+5.99*.09+5.99
+6.529100000000001
+Math.round(5.99*.09+5.99)
+7
+Math.round(6.49)
+6
+Math.round((5.99*.09+5.99)*100)/100
+6.53
+Math.floor(5.99*.09+5.99)
+6
+Math.ceil(5.99*.09+5.99)
+7
+Math.max(5, 10, 20)
+20
+Math.min(5, 10, 20)
+5
+Math.random()
+0.15118302769893321
+Math.random()
+0.6515428987452139
+Math.random()
+0.12369783282771407
+Math.random()*10
+2.260099954711421
+Math.random()*10
+7.45921662308338
+Math.random()*10
+8.646644560133552
+Math.floor(Math.random()*10)
+1
+Math.floor(Math.random()*10)
+5
+Math.ceil(Math.random()*10)
+2
+Math.ceil(Math.random()*100)
+91
+Math.floor(Math.random()*100)
+84
+Math.floor(4.99)
+4
+Math.ceil(4.99)
+5
+Math.ceil(4.11)
+5
+var celsiusToFahrenheit = function (celsius){
+return celsius*9/5 +32
+}
+undefined
+celsiusToFahrenheit(10)
+50
+10*9/5+32
+50
+11*9/5+32
+51.8
+13*9/5+32
+55.4
+var totalPrice = Math.round(7.33*0,05+7.33)
+undefined
+totalPrice
+0
+var totalPrice = Math.round(7.33*0.05+7.33)
+undefined
+totalPrice
+8
+celsiusToFahrenheit(100)
+212
+celsiusToFahrenheit(0)
+32
+var totalPrice = Math.round((7.33*0.05+7.33))*100/100
+undefined
+totalPrice
+8
+var totalPrice = Math.round((7.33*0.05+7.33)*100)/100
+undefined
+totalPrice
+7.7
+7.33*0.05+7.33
+7.6965
+7.35*0.05+7.33
+7.6975
+7.35*0.05+7.35
+7.717499999999999
+var totalPrice = Math.round((7.35*0.05+7.35)*100)/100
+undefined
+totalPrice
+7.72
