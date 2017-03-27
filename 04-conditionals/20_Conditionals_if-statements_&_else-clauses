@@ -1,0 +1,191 @@
+var yellingTweet = "I'M YELLING!";
+undefined
+var normalTweet = "I'm talking in a normal tone";
+undefined
+if (yellingTweet.toUpperCase() === yellingTweet){}
+undefined
+if (yellingTweet.toUpperCase() === yellingTweet){
+    console.log("Please stop yelling.");
+}
+VM189:2 Please stop yelling.
+undefined
+yellingTweet.toUpperCase() === yellingTweet
+true
+normalTweet.toUpperCase() === normalTweet
+false
+if (normalTweet.toUpperCase() === normalTweet){
+    console.log("Please stop yelling.");
+}
+Console was cleared
+undefined
+if (5<7) {
+    console.log("Yay!");
+}
+VM302:2 Yay!
+undefined
+if (5===7) {
+    console.log("Yay!");
+}
+if (5===7) {
+    console.log("Yay!");
+}
+undefined
+if (5===7) {
+    console.log("Yay!");
+} else {
+    console.log("BOO!");
+}
+VM357:4 BOO!
+undefined
+var goodTweet = "this is a good tweet lol";
+undefined
+var boringTweet = "this is a boring tweet";
+undefined
+goodTweet.indexOf("lol");
+21
+boringTweet.indexOf("lol");
+-1
+if (goodTweet.indexOf("lol") > -1) {
+    console.log("nice tweet!");
+} else {
+     console.log("this tweet could be improved a little.");
+}
+VM597:2 nice tweet!
+undefined
+if (boringTweet.indexOf("lol") > -1) {
+    console.log("nice tweet!");
+} else {
+     console.log("this tweet could be improved a little.");
+}
+VM608:4 this tweet could be improved a little.
+undefined
+boringTweet.indexOf("lol");
+-1
+var age = 25;
+undefined
+if (age >=13) {
+    console.log("You can hae a Facebook account!");
+}
+VM663:2 You can hae a Facebook account!
+undefined
+console.log("finished");
+VM708:1 finished
+undefined
+var height = 45; //inches
+undefined
+var minHeightInFeet = 4;
+undefined
+if (height/12 >= minHeightInFeet) {
+    console.log("You can ride Space Moutain!");
+} else {
+    console.log("Sorry! You can't ride this year.");
+}
+VM944:4 Sorry! You can't ride this year.
+undefined
+
+Console was cleared
+undefined
+str = "Hello world";
+"Hello world"
+
+if (str.charAt(str.length-1) === "?"){
+    console.log("yes");
+} else {
+    console.log("that's not a question!");
+};
+VM1127:4 that's not a question!
+undefined
+
+str = "Hello world?";
+"Hello world?"
+if (str.charAt(str.length-1) === "?"){
+    console.log("yes");
+} else {
+    console.log("that's not a question!");
+};
+VM1147:2 yes
+
+Console was cleared
+undefined
+var s1 = "string 1";
+undefined
+var s2 = "cab"
+
+undefined
+if (s1 > s2){
+    console.log(s2);
+} else {
+    console.log(s1);
+};
+VM1295:2 cab
+undefined
+
+s1 = "fff"
+"fff"
+s2 = "zzz"
+"zzz"
+if (s1 > s2){
+    console.log(s2);
+} else {
+    console.log(s1);
+};
+VM1306:4 fff
+undefined
+
+VM1320:1 Console was cleared
+undefined
+if (str.charAt(str.length-1) === "?"){
+    console.log("yes");
+} else {
+    console.log("that's not a question!");
+};
+VM1321:2 yes
+undefined
+str = "Is it question?"
+"Is it question?"
+if (str.charAt(str.length-1) === "?"){
+    console.log("yes");
+} else {
+    console.log("that's not a question!");
+};
+VM1329:2 yes
+undefined
+str2 = "this isn't question/"
+"this isn't question/"
+str2 = "this isn't question."
+"this isn't question."
+if (str2.charAt(str.length-1) === "?"){
+    console.log("yes");
+} else {
+    console.log("that's not a question!");
+};
+VM1343:4 that's not a question!
+undefined
+var animalA = "aardvark";
+undefined
+var animalB = "zebra";
+undefined
+animalA < animalB
+true
+animalA > animalB
+false
+if (animalA > animalB){
+    console.log(animalB);
+} else {
+    console.log(animalA);
+};
+
+VM1470:4 aardvark
+undefined
+var animalA = "zebra";
+undefined
+var animalB = "aardvark";
+undefined
+if (animalA > animalB){
+    console.log(animalB);
+} else {
+    console.log(animalA);
+};
+
+VM1481:2 aardvark
+undefined
