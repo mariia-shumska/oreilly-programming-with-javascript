@@ -35,7 +35,7 @@ var fahrToCels = function (fahrTemp) {
 //     randUpTo(1000);
 //     //=> 236
 var randUpTo = function (maxNumber) {
-  return Math.random()*maxNumber;
+  return Math.floor(Math.random()*maxNumber);
 };
 
 
@@ -63,7 +63,10 @@ var randBetween = function (rand1, rand2) {
 //     //=> false
 var isSuit = function (suit) {
   suit = suit.toLowerCase();
-  return suit === "clubs" || suit ==="diamonds" || suit ==="hearts" || suit==="spades";
+  return suit === "clubs" ||
+    suit ==="diamonds" ||
+    suit ==="hearts" ||
+    suit==="spades";
 };
 
 
@@ -81,8 +84,19 @@ var isSuit = function (suit) {
 //     //=> false
 var isRank = function (rank) {
   rank = rank.toLowerCase();
-  return rank==="two" || rank==="three" || rank==="four" || rank==="five" || rank==="six" || rank==="seven" ||
-  rank==="eight" || rank==="nine" || rank==="ten" || rank==="jack" || rank==="queen" || rank==="king" || rank==="ace";
+  return rank==="two" ||
+         rank==="three" ||
+         rank==="four" ||
+         rank==="five" ||
+         rank==="six" ||
+         rank==="seven" ||
+         rank==="eight" ||
+         rank==="nine" ||
+         rank==="ten" ||
+         rank==="jack" ||
+         rank==="queen" ||
+         rank==="king" ||
+         rank==="ace";
 };
 
 
@@ -115,8 +129,8 @@ var isCapitalized = function (str) {
 //     getHTMLText("<li>this is a list item</li>");
 //     //=> this is a list item
 var getHTMLText = function (htmlElement) {
-  var str = htmlElement.slice(htmlElement.indexOf(">")+ 1, htmlElement.indexOf("</"))
-  return str
+  return htmlElement.slice(htmlElement.indexOf(">")+ 1, htmlElement.indexOf("</"))
+//  return htmlElement.substring(htmlElement.indexOf(">")+ 1, htmlElement.lastIndexOf("</")) - solution
 };
 
 
