@@ -12,8 +12,16 @@
 //
 //     passwordStrength("helloone");
 //     //=> medium
-var passwordStrength = function () {
-};
+var passwordStrength = function (password) {
+//  var result = "weak"
+  if (password.length >= 10){
+     return "strong"
+  } else if (password.length >= 7 && password.length < 10) {
+     return "medium"
+  } else {
+      return "weak"
+  }
+  };
 
 
 // A year is a leap year if it is divisible by 4, unless it is also divisible by
@@ -37,7 +45,18 @@ var passwordStrength = function () {
 //
 //      isLeapYear("hello");
 //      //=> THAT'S NOT A NUMBER!
-var isLeapYear = function () {
+var isLeapYear = function (year) {
+  var result;
+  if (typeof year !== "number"){
+      result =  "THAT'S NOT A NUMBER!";
+  } else if (year % 100 === 0 && year % 4 === 0 && year % 400 === 0){
+      result = true;
+  } else if (year % 4 === 0 && year % 100 !== 0) {
+      result = true;
+  } else {
+      result = false;
+  }
+  return result
 };
 
 
@@ -161,10 +180,3 @@ var interjectAt = function () {
 // function with the appropriate arguments.
 var randomInterject = function () {
 };
-
-
-
-
-
-
-

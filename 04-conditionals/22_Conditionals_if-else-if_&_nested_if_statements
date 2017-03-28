@@ -1,0 +1,70 @@
+VM151:1 Console was cleared
+undefined
+number
+5
+if (0 < number && number < 5) {
+    console.log("the number is in the range - to 5");
+}
+undefined
+if (0 < number && number < 5) {
+    console.log("the number is in the range 0 to 5");
+} else {
+    console.log("the number is not in the range 0 to 5"
+}
+VM227:4 Uncaught SyntaxError: missing ) after argument list
+if (0 < number && number < 5) {
+    console.log("the number is in the range 0 to 5");
+} else {
+    console.log("the number is not in the range 0 to 5");
+}
+VM228:4 the number is not in the range 0 to 5
+undefined
+if (0 < number && number <= 5) {
+    console.log("the number is in the range 0 to 5");
+} else {
+    console.log("the number is not in the range 0 to 5");
+}
+VM231:2 the number is in the range 0 to 5
+undefined
+number = 6
+6
+if (0 < number && number <= 5) {
+    console.log("the number is in the range 0 to 5");
+} else {
+    console.log("the number is not in the range 0 to 5");
+}
+VM240:4 the number is not in the range 0 to 5
+undefined
+
+if (0 < number && number <= 5) {
+    console.log("the number is in the range 0 to 5");
+} else if (5 < number && number <= 10) {
+    console.log("the number is in the range 5 to 10");
+} else {
+    console.log("the number is not in the range 0 to 10");
+}
+VM288:4 the number is in the range 5 to 10
+undefined
+
+number = 10
+10
+if (0 < number && number <= 5) {
+    console.log("the number is in the range 0 to 5");
+} else if (5 < number && number <= 10) {
+    console.log("the number is in the range 5 to 10");
+} else {
+    console.log("the number is not in the range 0 to 10");
+}
+VM307:4 the number is in the range 5 to 10
+undefined
+
+number = 11
+11
+if (0 < number && number <= 5) {
+    console.log("the number is in the range 0 to 5");
+} else if (5 < number && number <= 10) {
+    console.log("the number is in the range 5 to 10");
+} else {
+    console.log("the number is not in the range 0 to 10");
+}
+VM310:6 the number is not in the range 0 to 10
