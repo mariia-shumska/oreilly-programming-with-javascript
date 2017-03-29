@@ -138,7 +138,12 @@ var improveTweet = function (tweet) {
 // Write a function called `isQuestion` that returns true if the input is a
 // string and it ends in a question mark. We'll use this function in the next
 // practice problem.
-var isQuestion = function () {
+var isQuestion = function (str) {
+  if (typeof str === "string" && str.charAt(str.length - 1) === "?"){
+      return true;
+  } else {
+      return false;
+  }
 };
 
 
@@ -161,11 +166,26 @@ var isQuestion = function () {
 //     // throw an error if there's no question mark at the end
 //     // use your isQuestion function from the previous question
 //     magic8Ball("you suck");
-//     //=> THAT DOESN'T SOUND LIKE A QUESTION!
+//     //=> THAT DOESN'T SOUND LIKE A  QUESTION!
 //
 //     magic8Ball("Is this a question?");
 //     //=> Signs point to yes
-var magic8Ball = function () {
+var magic8Ball = function (question) {
+  var random = Math.floor(Math.random()*4)
+  var answer;
+  var improveText;
+  if (random === 0 || random === 1){
+      answer = "yes";
+  } else if (random === 2) {
+      answer = " no";
+  } else if (random === 3) {
+      answer = "maybe";
+  }
+  if (!isQuestion(question)){
+      throw "THAT DOESN'T SOUND LIKE A QUESTION!"
+  } else {
+      return answer;
+  }
 };
 
 
@@ -205,7 +225,16 @@ var magic8Ball = function () {
 //     var strWithInterjection = beginning + "-lol-" + end;
 //
 // You just have to generalize this to an arbitrary index and wrap it in a function.
-var interjectAt = function () {
+var interjectAt = function (interjection, index, tweet) {
+  var beginning = tweet.slice(0, index);
+  var end = tweet.slice(index, tweet.length);
+  if (typeof interjection !== "string" ||  typeof index !== "number" || typeof tweet !== "string") {
+    throw "expected first arg to be a string, second arg to be a number and third arg to be a string"
+  } else if (index < tweet.length){
+      return beginning + "-" + interjection + "-" + end;
+  } else {
+      throw "the string doesn't have that many letters!"
+  }
 };
 
 
@@ -213,5 +242,23 @@ var interjectAt = function () {
 // `randomInterjection` function consists of generating a random message and a
 // random location within the string, and then calling into the `interjectAt`
 // function with the appropriate arguments.
-var randomInterject = function () {
+var randomInterject = function (tweet) {
+  var interjection;
+  var r1 = Math.floor((Math.random()*2))
+  var index = Math.floor((Math.random()*tweet.length))
+
+  var beginning = tweet.slice(0, index);
+  var end = tweet.slice(index, tweet.length);
+
+  if (r1 === 0){
+    interjection = "-lol-";
+  } else if (r1 === 1) {
+    interjection = "-omg-";
+  }
+
+  if (typeof tweet !== "string") {
+    throw "the input is not a string"
+  } else {
+    return beginning + interjection + end
+  }
 };
