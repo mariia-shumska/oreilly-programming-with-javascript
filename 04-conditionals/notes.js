@@ -89,3 +89,72 @@ var classifyTweet = function (tweet) {
   }
   return rez
 }
+
+var maxOfThree = function (a,b, c) {
+  var result;
+  if (a > b) {
+    // a is bigger than b
+    if (a > c) {
+      // a is bigger c
+      result = a;
+    } else {
+      // c is bigger than a
+      // and c is bigger than b
+      result = c;
+    }
+  } else {
+    if (b > c){
+      result = b;
+    } else {
+      result = c;
+    }
+  }
+  return result
+}
+
+var maxOfThree2 = function (a,b, c) {
+  var result;
+  if (a > b && a > c){
+      result = a;
+  } else if (b > a && b > c) {
+      result = b;
+  } else {
+    result = c;
+  }
+  return result
+}
+
+var addThree = function (a,b,c) {
+return a + b + c
+}
+undefined
+addThree (1,2,3)
+6
+addThree (10,20,30)
+60
+addThree (10,15, "hello world")
+"25hello world"
+addThree ("hello world", 10, 15)
+"hello world1015"
+var isNumber = function (value) {
+return typeof value === "number";
+}
+undefined
+isNumber(5)
+true
+isNumber("string")
+false
+
+var addThree = function (a,b,c) {
+  if (!isNumber(a) || !isNumber(b) || !isNumber(c)){
+    throw "ALL INPUTS TO ADDTHREE MUST BE NUMBERS!!!";
+  }
+   return a + b + c
+}
+undefined
+addThree ("hello world", 10, 15)
+VM810:3 Uncaught ALL INPUTS TO ADDTHREE MUST BE NUMBERS!!!
+addThree @ VM810:3
+(anonymous) @ VM812:1
+addThree (5, 10, 15)
+30

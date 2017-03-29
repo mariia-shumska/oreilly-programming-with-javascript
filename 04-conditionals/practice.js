@@ -48,7 +48,7 @@ var passwordStrength = function (password) {
 var isLeapYear = function (year) {
   var result;
   if (typeof year !== "number"){
-      result =  "THAT'S NOT A NUMBER!";
+      throw  "THAT'S NOT A NUMBER!";
   } else if (year % 100 === 0 && year % 4 === 0 && year % 400 === 0){
       result = true;
   } else if (year % 4 === 0 && year % 100 !== 0) {
@@ -76,7 +76,18 @@ var isLeapYear = function (year) {
 //
 //      firstInDictionary("whale", 5, 10);
 //      //=> ALL THREE ARGS MUST BE STRINGS!
-var firstInDictionary = function () {
+var firstInDictionary = function (word1, word2, word3) {
+  var result;
+  if (typeof word1 !== "string" || typeof word2 !== "string" || typeof word3 !== "string"){
+    throw "ALL THREE ARGS MUST BE STRINGS!";
+  } else if (word1 < word2 && word1 < word3) {
+    result = word1;
+  } else if (word2 < word1 && word2 < word3) {
+    result = word2;
+  } else {
+    result = word3;
+  }
+  return result;
 };
 
 
@@ -90,13 +101,37 @@ var firstInDictionary = function () {
 //
 //     getTagName("<p>this is wrong</div>");
 //     //=> Error: Not an HTML Element!
-var getTagName = function () {
-};
+var getTagName = function (tag) {
+//  var tagName;
+  var openTag = tag.slice(tag.indexOf("<")+1, tag.indexOf(">"));
+  var closeTag = tag.slice(tag.lastIndexOf("</")+2, tag.lastIndexOf(">"));
+  if (tag.charAt(0) === "<" && tag.charAt(tag.length -1) === ">" && openTag === closeTag){
+      return openTag
+  } else {
+      throw "Not an HTML Element!"
+  }
+  };
 
 
 // Re-implement our improveTweet function so it can generate any of lol, omg,
 // lmao, and rofl.
-var improveTweet = function () {
+var improveTweet = function (tweet) {
+  random = Math.floor(Math.random()*4)
+  var improveText;
+  if (random === 0){
+      improveText = " lol";
+  }else if (random === 1) {
+      improveText = " omg";
+  } else if (random === 2) {
+      improveText = " lmao";
+  } else if (random === 3) {
+      improveText = " rofl";
+  }
+  if (tweet.indexOf(improveText) === -1){
+    return tweet + improveText;
+  } else {
+    return tweet;
+  }
 };
 
 
