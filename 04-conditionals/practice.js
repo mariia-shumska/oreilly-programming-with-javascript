@@ -45,7 +45,7 @@ var passwordStrength = function (password) {
 //
 //      isLeapYear("hello");
 //      //=> THAT'S NOT A NUMBER!
-var isLeapYear = function (year) {
+ var isLeapYear = function (year) {
   var result;
   if (typeof year !== "number"){
       throw  "THAT'S NOT A NUMBER!";
@@ -59,6 +59,13 @@ var isLeapYear = function (year) {
   return result
 };
 
+// the simplest version // solution variant
+var isLeapYear2 = function (year) {
+  if (typeof year !== "number"){
+      throw  "THAT'S NOT A NUMBER!";
+  }
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+};
 
 // Write a function that accepts three strings and input, and returns the one
 // that would come earliest in the dictionary.
@@ -146,6 +153,10 @@ var isQuestion = function (str) {
   }
 };
 
+// solution variant
+var isQuestion2 = function (str) {
+  return (typeof str === "string") && str.charAt(str.length - 1) === "?"
+};
 
 // The Magic 8 Ball is a classic toy that allows you to ask a yes/no
 // question and it responds with a random answer. Most of the time (at least half)
@@ -242,7 +253,7 @@ var interjectAt = function (interjection, index, tweet) {
 // `randomInterjection` function consists of generating a random message and a
 // random location within the string, and then calling into the `interjectAt`
 // function with the appropriate arguments.
-var randomInterject = function (tweet) {
+var randomInterject2 = function (tweet) {
   var interjection;
   var r1 = Math.floor((Math.random()*2))
   var index = Math.floor((Math.random()*tweet.length))
@@ -260,5 +271,19 @@ var randomInterject = function (tweet) {
     throw "the input is not a string"
   } else {
     return beginning + interjection + end
+  }
+};
+
+// solution variant
+var randomInterject = function (tweet) {
+  var r1 = Math.floor((Math.random()*2));
+  var index = Math.floor((Math.random()*tweet.length));
+
+  if (typeof tweet !== "string"){
+      throw "the input is not a string"
+  } else if (r1 === 0){
+      return interjectAt ("-lol-", index, tweet)
+  } else if (r1 === 1) {
+      return interjectAt ("-omg-", index, tweet)
   }
 };
