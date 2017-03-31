@@ -29,6 +29,19 @@ var isVowel = function (letter) {
   }
 };
 
+//solution variant
+var isVowel1 = function (letter) {
+  var result = false;
+  var lcLetter;
+
+  if (typeof letter === "string" && letter.length === 1){
+    lcLetter = letter.toLowerCase();
+    result = lcLetter === "a" || lcLetter === "e" || lcLetter === "i" ||
+             lcLetter === "o" || lcLetter === "u"
+  }
+  return result;
+}
+
 
 // Write a function called `isLowerCaseLetter` that returns `true` if
 // the input is a single letter and lower-case. It should return false otherwise.
@@ -54,6 +67,11 @@ var isLowerCaseLetter = function (letter) {
   } else {
     return false;
   }
+};
+
+//solution variant
+var isLowerCaseLetter1 = function (letter) {
+  return typeof letter === "string" && letter.length === 1 && "a" <= letter && letter<= "z"
 };
 
 
@@ -180,7 +198,7 @@ var reverseString = function (str) {
   if (!isString(str)){
     throw "input to reverseString must be a string!";
   } else {
-    for (var n = str.length; n >= 0; n = n -1){
+    for (var n = str.length-1; n >= 0; n = n -1){
       reverseStr = reverseStr + str.charAt(n);
     }
   }
@@ -220,11 +238,25 @@ var isPrime = function (p) {
   }
   if (result === 1 && p > 1){
     return true;
-  } else{
+  } else {
     return false;
   }
 };
 
+// solution result
+var isPrime1 = function (p) {
+  var result = true;
+
+  if (typeof p !== "number" || p < 2){
+    result = false
+  }
+  for (var div = 2; div < p && result === true; div = div +1){
+    if (p % div === 0){
+      result = false;
+    }
+  }
+  return result;
+};
 
 // Using the `isPrime` function, write a function that accepts a number as
 // input sums all the primes smaller than that number.
