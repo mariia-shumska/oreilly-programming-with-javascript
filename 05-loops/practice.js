@@ -17,7 +17,16 @@
 //    isVowel("Y");
 //    //=> false
 //
-var isVowel = function () {
+var isVowel = function (letter) {
+  if (typeof letter !== "string"){
+    return false;
+  } else if (letter.toLowerCase() === "a" || letter.toLowerCase() === "e" ||
+      letter.toLowerCase() === "i" || letter.toLowerCase() === "o" ||
+      letter.toLowerCase() === "u"){
+        return true;
+  } else {
+      return false;
+  }
 };
 
 
@@ -39,7 +48,12 @@ var isVowel = function () {
 //    isLowerCaseLetter(true);
 //    //=> false
 //
-var isLowerCaseLetter = function () {
+var isLowerCaseLetter = function (letter) {
+  if (typeof letter === "string" && letter.length === 1 && letter.toLowerCase() === letter){
+    return true;
+  } else {
+    return false;
+  }
 };
 
 
@@ -59,7 +73,16 @@ var isLowerCaseLetter = function () {
 //     sumUpTo(-10);
 //     //=> input must be a zero or a positive number!
 //
-var sumUpTo = function () {
+var sumUpTo = function (number) {
+  var sum = 0;
+  if (number < 0){
+    throw "input must be a zero or a positive number!";
+  } else{
+    for (var n = 0; n <= number; n = n +1){
+      sum = sum + n;
+    }
+  }
+  return sum;
 };
 
 
@@ -82,7 +105,21 @@ var sumUpTo = function () {
 //     sumAToB("hello", "world");
 //     //=> inputs should be numbers!
 //
-var sumAToB = function () {
+var sumAToB = function (a, b) {
+  var sum = 0;
+  if (typeof a !== "number" || typeof b !== "number"){
+    throw "inputs should be numbers!";
+  }
+  if (a <= b){
+    for (var n = a; n <= b; n = n+1){
+      sum = sum + n
+    }
+  } else {
+    for (var n = a; n>=b; n = n-1) {
+      sum = sum  + n;
+    }
+  }
+  return sum;
 };
 
 
