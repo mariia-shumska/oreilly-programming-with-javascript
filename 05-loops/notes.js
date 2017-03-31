@@ -1,41 +1,79 @@
 // your notes here!
-console.log("hello world!");
-
 console.log("these are the notes for section 5");
-
-var number = 0;
-
-while ( number<= 10){
-  if (number % 2 === 0) {
-      console.log("the  number is even");
-  }else {
-      console.log("the number is odd!");
+var sumFirstOneHundred = function(x){
+  var sum = 0;
+  var currentNumber;
+  for (currentNumber = 1; currentNumber <= x; currentNumber = currentNumber +1){
+      sum = sum + currentNumber;
   }
-  number = number +1;
+  return sum;
 }
 
-for (number = 0; number<=10; number = number +1){
-  if (number % 2 === 0) {
-      console.log("the  number is even");
-  }else {
-      console.log("the number is odd!");
+var largestDivisor = function(number){
+  var result = 1;
+  var current;
+  for (current =2; current < number; current = current +1){
+      if (number % current === 0){
+        result = current
+      }
   }
+  return result
+}
+
+var removeVowels = function (word){
+  if (typeof word !== "string"){
+      throw "the input to removeVowels shouls be a string";
+  }
+  var result="";
+  var index;
+
+  for (index = 0; index < word.length; index = index +1){
+      if (word.charAt(index) !== "a" && word.charAt(index) !== "e" &&
+          word.charAt(index) !== "o" && word.charAt(index) !== "u" &&
+          word.charAt(index) !== "i"){
+          result = result + word.charAt(index);
+          }
+  }
+  return result
+}
+
+//firstLowerCaseLetter("THIS is a short tweet");
+//=> i
+//firstLowerCaseLetter("HHIS IS ANOTHER TWeet");
+//=> e
+//firstLowerCaseLetter("HHIS IS A SCREAMING TWEET");
+//=>""
+
+var firstLowerCaseLetter = function(tweet){
+  if (typeof tweet !== "string"){
+    throw "We require a string here, sorry...";
+  }
+  var result = "";
+  var index;
+//  for (index = 0; index < tweet.length && result ===""; index = index +1){
+  for (index = 0; index < tweet.length; index = index +1){
+    if ("a"<=tweet.charAt(index) && tweet.charAt(index)<="z"){
+//      result = tweet.charAt(index);
+        return tweet.charAt(index)
+    }
   }
 
-
-var count;
-for (count = 0; count<=100; count = count + 1){
-  console.log("the number is: " + count)
+  return result
 }
 
-var num;
-for (num = 0; num<100; num = num+1){
-  if (num % 3 === 0){
-      console.log(num + " is multiple of 3 and smaller than 100");
-}
-}
+// countDown(10)
+//=>10
+//=>9
+//=>8
+//=>...
+//=>0
 
-var num2;
-for (num2 = 0; num2<100; num2 = num2+3){
-  console.log("this multiple of three is: " + num2)
-}
+var countDown = function (number) {
+  if (typeof number !== "number"){
+    throw "NUMBER SHOULD BE A NUMBER!!!"
+  }
+  var current;
+  for (current = number; current>=0; current = current -1){
+    console.log(current);
+  }
+};
