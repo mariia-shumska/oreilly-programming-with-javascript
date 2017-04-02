@@ -263,6 +263,49 @@ same thing. However, they've got a few important differences. What happens when
 you access an element outside the length of the string with `charAt`? What
 happens when you do the same thing with the square brackets?
 
+var string = "some text";
+undefined
+string.charAt(1)
+=> "o"
+string[1]
+=> "o"
+
+string.charAt(0)
+=> "s"
+string[0]
+=> "s"
+
+string[-1]
+=> undefined
+string.charAt(-1)
+=> ""
+
+string.length
+=> 9
+
+string.charAt(20)
+=> ""
+string[20]
+=> undefined
+
 1. You can _mutate_ an the value at an index in an array by using the square
 brackets. Does the same thing work with a string? Why might that be?
 
+list = [5,7,9,11]
+[5, 7, 9, 11]
+
+list[0] = 3
+3
+
+string[0]
+"s"
+string[0] = "S"
+=>"S"
+
+string
+=>"some text"
+
+string[1] = "S"
+"S"
+string
+"some text"

@@ -14,7 +14,14 @@
 //     containsTwice(10, [10, 10, 10, 10, 10]);
 //     //=> false
 //
-var containsTwice = function () {
+var containsTwice = function (value, list) {
+  var count = 0;
+  for (num = 0; num < list.length; num = num + 1){
+    if (list[num] === value){
+      count = count + 1;
+    }
+  }
+  return count === 2;
 };
 
 
@@ -30,7 +37,14 @@ var containsTwice = function () {
 //     containsNTimes(0, 5, [ 1, 2, 3, 4, 5 ]);
 //     //=> false
 //
-var containsNTimes = function () {
+var containsNTimes = function (n, value, list) {
+  var count = 0;
+  for (num = 0; num < list.length; num = num + 1){
+    if (list[num] === value){
+      count = count + 1
+    }
+  }
+  return count === n;
 };
 
 
@@ -50,7 +64,31 @@ var containsNTimes = function () {
 //     atLeastOneEven("hello");
 //     //=> input should be an array!
 //
-var atLeastOneEven = function () {
+/*
+var atLeastOneEven = function (list) {
+  if (!Array.isArray(list)){
+    throw "input should be an array!"
+  }
+  var result = false;
+  for (n = 0; n < list.length && result === false; n = n + 1){
+    if (list[n] % 2 === 0){
+      result = true;
+    }
+  }
+  return result;
+};
+*/
+
+var atLeastOneEven = function (list) {
+  if (!Array.isArray(list)){
+    throw "input should be an array!"
+  }
+  for (n = 0; n < list.length; n = n + 1){
+    if (list[n] % 2 === 0){
+      return true;
+    }
+  }
+  return false;
 };
 
 
