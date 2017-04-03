@@ -125,7 +125,7 @@ var atLeastOneEven = function (list) {
 
 var allStrings = function (list) {
   if (!Array.isArray(list)){
-    throw "input should be an array!";;
+    throw "Input should be an array!";;
   }
 
   for (n = 0; n < list.length; n = n + 1){
@@ -229,6 +229,19 @@ var getValuesAppearingTwice = function (list) {
 //     //=> arguments to range must be numbers
 //
 var range = function (begin, end) {
+  if (typeof begin !== "number" || typeof end !== "number"){
+    throw "arguments to range must be numbers"
+  }
+  var list = [];
+  if (begin <= end){
+    for (n = begin; n <= end; n = n + 1){
+      list.push(n);
+    }
+  } else {
+    for (n = begin; n >= end; n = n -1)
+    list.push(n)
+  }
+  return list;
 };
 
 
@@ -253,7 +266,39 @@ var range = function (begin, end) {
 //     mapToTags([ "not an html element" ]);
 //     //=> all entries must be html elements!
 //
-var mapToTags = function () {
+
+var isHTMLElement = function (htmlElement) {
+  var openTag = htmlElement.slice(htmlElement.indexOf("<")+1, htmlElement.indexOf(">"));
+  var closeTag = htmlElement.slice(htmlElement.lastIndexOf("</")+2, htmlElement.lastIndexOf(">"))
+  return openTag === closeTag && htmlElement.charAt(0)==="<" && htmlElement.charAt(htmlElement.length -1)===">"
+}
+
+var getTagName = function (tag) {
+  var openTag = tag.slice(tag.indexOf("<")+1, tag.indexOf(">"));
+  var closeTag = tag.slice(tag.lastIndexOf("</")+2, tag.lastIndexOf(">"));
+  if (tag.charAt(0) === "<" && tag.charAt(tag.length -1) === ">" && openTag === closeTag){
+      return openTag
+  } else {
+      throw "Not an HTML Element!"
+  }
+};
+
+var mapToTags = function (htmlElements) {
+  if (!Array.isArray(htmlElements)){
+    throw ("The input is not an array!")
+  }
+
+/*  for (n = 0; n < htmlElements.length; n = n +1){
+    if (!isHTMLElement(htmlElements[n])){
+      throw "All entries must be html elements!"
+    }
+  }
+*/
+  var tags = [];
+  for (elem = 0; elem < htmlElements.length; elem = elem + 1){
+    tags.push(getTagName(htmlElements[elem]))
+  }
+  return tags;
 };
 
 
@@ -277,5 +322,16 @@ var mapToTags = function () {
 //     filterToLol(["this is a string", false, 5]);
 //     //=> all entries must be strings!
 //
-var filterToLol = function () {
+var filterToLol = function (tweets) {
+  if (!allStrings(tweets)){
+    throw "All entries must be strings!"
+  }
+
+  var lolTweet = []
+  for (n = 0; n < tweets.length; n = n + 1){
+    if (tweets[n].toLowerCase().indexOf("lol") >= 0){
+      lolTweet.push(tweets[n]);
+    }
+  }
+  return lolTweet;
 };
