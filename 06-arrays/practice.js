@@ -163,7 +163,7 @@ var containsAnyTwice = function (list1, list2) {
   if (!Array.isArray(list1) || !Array.isArray(list2)){
     throw "containsAnyTwice expects two arguments, both of which should be an array.";
   }
-  result = false;
+  var result = false;
   for (n = 0; n < list1.length && result === false; n = n +1){
       if (containsTwice(list1[n], list2)){
         result = true;
@@ -228,7 +228,7 @@ var getValuesAppearingTwice = function (list) {
 //     range("hello", "world");
 //     //=> arguments to range must be numbers
 //
-var range = function (begin, end) {
+var range1 = function (begin, end) {
   if (typeof begin !== "number" || typeof end !== "number"){
     throw "arguments to range must be numbers"
   }
@@ -244,6 +244,26 @@ var range = function (begin, end) {
   return list;
 };
 
+var range = function (begin, end) {
+  if (typeof begin !== "number" || typeof end !== "number"){
+    throw "arguments to range must be numbers"
+  }
+
+  var increment;
+  var list = [];
+  if (begin <= end){
+    increment = 1;
+  } else {
+    increment = -1;
+  }
+
+  while (begin !== end){
+    list.push(begin);
+    begin = begin + increment;
+  }
+  list.push(end);
+  return list;
+};
 
 // Using the `isHTMLElement` and `getTagName` function from one of the previous
 // sections, write a function called `mapToTags` that accepts an array of HTML
@@ -274,13 +294,10 @@ var isHTMLElement = function (htmlElement) {
 }
 
 var getTagName = function (tag) {
-  var openTag = tag.slice(tag.indexOf("<")+1, tag.indexOf(">"));
-  var closeTag = tag.slice(tag.lastIndexOf("</")+2, tag.lastIndexOf(">"));
-  if (tag.charAt(0) === "<" && tag.charAt(tag.length -1) === ">" && openTag === closeTag){
-      return openTag
-  } else {
+  if (!isHTMLElement(tag)){
       throw "Not an HTML Element!"
   }
+  return tag.slice(tag.indexOf("<")+1, tag.indexOf(">"))
 };
 
 var mapToTags = function (htmlElements) {
@@ -296,6 +313,9 @@ var mapToTags = function (htmlElements) {
 */
   var tags = [];
   for (elem = 0; elem < htmlElements.length; elem = elem + 1){
+    if (!isHTMLElement(htmlElements[elem])){
+      throw "'" + htmlElements[elem] + "'" + " - is not an HTML element!"
+    }
     tags.push(getTagName(htmlElements[elem]))
   }
   return tags;
