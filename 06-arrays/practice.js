@@ -108,7 +108,32 @@ var atLeastOneEven = function (list) {
 // Although the tests will not be checking for this, try to make your loop exit
 // as soon as it finds a non-string entry in the array.
 //
-var allStrings = function () {
+
+/*var allStrings = function (list) {
+  if (!Array.isArray(list)){
+    throw "input should be an array!";;
+  }
+  result = true;
+  for (n = 0; n < list.length && result === true; n = n + 1){
+    if (typeof list[n] !== "string"){
+      result = false;
+    }
+  }
+  return result;
+};
+*/
+
+var allStrings = function (list) {
+  if (!Array.isArray(list)){
+    throw "input should be an array!";;
+  }
+
+  for (n = 0; n < list.length; n = n + 1){
+    if (typeof list[n] !== "string"){
+      return false;
+    }
+  }
+  return true;
 };
 
 
@@ -134,7 +159,17 @@ var allStrings = function () {
 // as soon as it finds an element in the first array that appears twice in the second
 // array.
 //
-var containsAnyTwice = function () {
+var containsAnyTwice = function (list1, list2) {
+  if (!Array.isArray(list1) || !Array.isArray(list2)){
+    throw "containsAnyTwice expects two arguments, both of which should be an array.";
+  }
+  result = false;
+  for (n = 0; n < list1.length && result === false; n = n +1){
+      if (containsTwice(list1[n], list2)){
+        result = true;
+      }
+  }
+  return result
 };
 
 
@@ -163,7 +198,14 @@ var containsAnyTwice = function () {
 //     getValuesAppearingTwice(["hello", "world", "goodbye"])
 //     //=> []
 //
-var getValuesAppearingTwice = function () {
+var getValuesAppearingTwice = function (list) {
+  var list2 = [];
+  for (n = 0; n < list.length; n = n + 1){
+    if (containsTwice(list[n],list) && list2.indexOf(list[n]) === -1){
+      list2.push(list[n])
+    }
+  }
+  return list2;
 };
 
 
@@ -186,7 +228,7 @@ var getValuesAppearingTwice = function () {
 //     range("hello", "world");
 //     //=> arguments to range must be numbers
 //
-var range = function () {
+var range = function (begin, end) {
 };
 
 
