@@ -77,3 +77,12 @@ var firstLetters = function (listOfStrings){
     return word.charAt(0);
   });
 }
+
+var range = function(max){
+  var result = [];
+  var index;
+  for (index = 0; index <= max; index = index +1){
+    result.push(index);
+  };
+  return result;
+};
