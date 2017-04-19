@@ -561,6 +561,17 @@ following questions.
 
 1. How many baby names start with the letter 'z'?
 
+names.filter(function(name){
+  return name[0] === "z";
+});
+=> ["zayden", "zahara", "zoie", "zaria", "zlaty", "zeldy", "zain", "zainab", "zalmen", "zissel", "zackary", "zaire", "zara", "zev", "zion", "zissy", "zoe", "zoey", "zachary"]
+
+names.filter(function(name){
+  return name[0] === "z";
+}).length
+
+=> 19
+
 2. How many baby names have the letter 'z' in them anywhere?
 
 3. Create a new array that contains all of the names containing a 'w' with the
@@ -580,5 +591,3 @@ first letter upper-case.
 
 10. How many names have the maximum number of vowels that you found in the
 previous problem?
-
-

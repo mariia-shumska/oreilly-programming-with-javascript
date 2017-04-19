@@ -110,14 +110,13 @@ var sumWithReduce = function(list){
 };
 
 var smallest = function(list) {
-  var result = list.reduce(function(smallestSoFar, current){
+  return list.reduce(function(smallestSoFar, current){
     var smallest = smallestSoFar;
     if (current < smallestSoFar){
       smallest = current;
     }
     return smallest;
   });
-  return result;
 }
 
 //paragraphify(["this is a tweet", "this is not a tweet", "hello world"])
