@@ -86,3 +86,17 @@ var range = function(max){
   };
   return result;
 };
+
+var isPrime = function (p) {
+  var result = true;
+
+  if (typeof p !== "number" || p < 2){
+    result = false
+  }
+  for (var div = 2; div < p && result === true; div = div +1){
+    if (p % div === 0){
+      result = false;
+    }
+  }
+  return result;
+};
