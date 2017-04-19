@@ -100,3 +100,35 @@ var isPrime = function (p) {
   }
   return result;
 };
+
+
+var sumWithReduce = function(list){
+  var result = list.reduce(function(sumSoFar, number){
+    return sumSoFar + number;
+  });
+  return result;
+};
+
+var smallest = function(list) {
+  var result = list.reduce(function(smallestSoFar, current){
+    var smallest = smallestSoFar;
+    if (current < smallestSoFar){
+      smallest = current;
+    }
+    return smallest;
+  });
+  return result;
+}
+
+//paragraphify(["this is a tweet", "this is not a tweet", "hello world"])
+// => This is a tweet. This is not a tweet. Hello world.
+
+var capitalize = function(tweet){
+  return tweet[0].toUpperCase() + tweet.slice(1);
+}
+
+var paragraphify = function(tweets){
+  return tweets.reduce(function(paragraph, currentTweet) {
+    return paragraph + capitalize(currentTweet) + ". ";
+  }, "");
+};
