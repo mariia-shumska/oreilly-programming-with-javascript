@@ -562,8 +562,9 @@ following questions.
 1. How many baby names start with the letter 'z'?
 
 names.filter(function(name){
-  return name[0] === "z";
+    return name[0] === "z";
 });
+
 => ["zayden", "zahara", "zoie", "zaria", "zlaty", "zeldy", "zain", "zainab", "zalmen", "zissel", "zackary", "zaire", "zara", "zev", "zion", "zissy", "zoe", "zoey", "zachary"]
 
 names.filter(function(name){
@@ -574,16 +575,78 @@ names.filter(function(name){
 
 2. How many baby names have the letter 'z' in them anywhere?
 
+names.filter(function(name){ return name.indexOf("z") > -1; });
+["zayden", "ezequiel", "litzy", "charlize", "zahara", "yechezkel", "luz", "tziporah", "tzippy", "zoie", "zaria", "nazir", "tzivia", "zlaty", "yaretzi", "yitzchak", "eluzer", "enzo", "jahzara", "ezriel", "denzel", "azriel", "zeldy", "roizy", "benzion", "hamza", "hazel", "jazlene", "lazer", "zain", "zainab", "zalmen", "zissel", "yitzchok", "zackary", "zaire", "zara", "zev", "zion", "zissy", "zoe", "vincenzo", "zoey", "tzvi", "tzirel", "tenzin", "raizy", "raizel", "mckenzie", "makenzie", "mackenzie", "lorenzo", "lizbeth", "liz", "jazmine", "jazmin", "jazlyn", "izabella", "ezra", "ezekiel", "elizabeth", "eliza", "eliezer", "aliza", "zachary"]
+
+names.filter(function(name){ return name.indexOf("z") > -1; }).length;
+//  => 65
+
 3. Create a new array that contains all of the names containing a 'w' with the
 first letter upper-case.
 
+names.filter(function(name){
+  return name.indexOf("w") > -1;
+}).map(function(word){
+  return word[0].toUpperCase() + word.slice(1) });
+
+// =>["Gwendolyn", "Walter", "Weston", "Willow", "Rashawn", "Whitney", "Tyshawn", "Darwin", "Hawa", "Sawyer", "Willie", "Wyatt", "Winnie", "Wilson", "Wilmer", "William", "Wesley", "Wendy", "Shawn", "Rowan", "Owen", "Maxwell", "Matthew", "Mathew", "Lawrence", "Edwin", "Edward", "Drew", "Andrew"]
+
 4. Do all of the names contain vowels?
+
+names.every(function(name){
+    return name.indexOf("a") > -1 || name.indexOf("o") > -1 || name.indexOf("u") > -1 ||
+           name.indexOf("e") > -1 || name.indexOf("i") > -1
+})
+
+ => false
+
+ names.filter(function(name){
+    return name.indexOf("a") === -1 && name.indexOf("o") === -1 && name.indexOf("u") === -1 &&
+           name.indexOf("e") === -1 && name.indexOf("i") === -1
+ })
+
+=> ["brynn", "sky", "ty"]
+
 
 5. Are there any names that have only two letters?
 
+names.some(function(name){
+   return name.length === 2
+})
+
+ => true
+
+ names.filter(function(name){
+   return name.length === 2
+})
+  => ["ty"]
+
 6. Is your name in the list?
 
+names.some(function(name){
+    return name === "mariia"
+})
+
+ => false
+
+names.some(function(name){
+    return name === "mary"
+})
+
+ => true
+
 7. Find the name that would come first alphabetically.
+
+names.reduce(function(firstAlphabetical, currentName){
+    if (firstAlphabetical< currentName){
+      return firstAlphabetical;
+    } else {
+      return currentName;
+    }
+})
+
+=> "aaden"
+
 
 8. How many times does the letter 'z' appear in the list?
 
