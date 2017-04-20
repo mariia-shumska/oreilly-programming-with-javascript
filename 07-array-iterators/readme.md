@@ -579,6 +579,7 @@ names.filter(function(name){ return name.indexOf("z") > -1; });
 ["zayden", "ezequiel", "litzy", "charlize", "zahara", "yechezkel", "luz", "tziporah", "tzippy", "zoie", "zaria", "nazir", "tzivia", "zlaty", "yaretzi", "yitzchak", "eluzer", "enzo", "jahzara", "ezriel", "denzel", "azriel", "zeldy", "roizy", "benzion", "hamza", "hazel", "jazlene", "lazer", "zain", "zainab", "zalmen", "zissel", "yitzchok", "zackary", "zaire", "zara", "zev", "zion", "zissy", "zoe", "vincenzo", "zoey", "tzvi", "tzirel", "tenzin", "raizy", "raizel", "mckenzie", "makenzie", "mackenzie", "lorenzo", "lizbeth", "liz", "jazmine", "jazmin", "jazlyn", "izabella", "ezra", "ezekiel", "elizabeth", "eliza", "eliezer", "aliza", "zachary"]
 
 names.filter(function(name){ return name.indexOf("z") > -1; }).length;
+
 //  => 65
 
 3. Create a new array that contains all of the names containing a 'w' with the
@@ -619,6 +620,7 @@ names.some(function(name){
  names.filter(function(name){
    return name.length === 2
 })
+
   => ["ty"]
 
 6. Is your name in the list?
@@ -638,11 +640,11 @@ names.some(function(name){
 7. Find the name that would come first alphabetically.
 
 names.reduce(function(firstAlphabetical, currentName){
-    if (firstAlphabetical< currentName){
-      return firstAlphabetical;
-    } else {
-      return currentName;
-    }
+  if (firstAlphabetical< currentName){
+    return firstAlphabetical;
+  } else {
+    return currentName;
+  }
 })
 
 => "aaden"
@@ -650,7 +652,76 @@ names.reduce(function(firstAlphabetical, currentName){
 
 8. How many times does the letter 'z' appear in the list?
 
+names.reduce(function (arr, element) {
+    arr = arr.concat(element.split(""))
+    return arr
+  }, []).filter(function (element) {
+    return element === "z"
+    }).length
+
+ => 65
+
+names.reduce(function(count, name) {
+   name.split("").filter(function (element) {
+  	  if (element === "z"){
+         count = count + 1
+      }
+   })
+    return count;
+}, 0)
+
+ => 65
+
 9. What is the maximum number of vowels in any name?
+
+names.map(function(name){
+    return name.split("").reduce(function(count, element){
+      if (element === "a" || element === "e" || element === "i" ||
+          element === "o" || element === "u"){
+          count = count + 1
+      }
+    return count
+},0)
+}).reduce(function(maximumOfVowels, currentCount){
+    return (maximumOfVowels > currentCount) ? maximumOfVowels : currentCount
+})
+
+ => 6
+
+ names.map(function(name){
+    return name.split("").filter(function(element){
+      return element === "a" || element === "e" || element === "i" ||
+             element === "o" || element === "u"
+    }).length
+}).reduce(function(maximumOfVowels, currentCount){
+    return (maximumOfVowels > currentCount) ? maximumOfVowels : currentCount
+})
+
+ => 6
 
 10. How many names have the maximum number of vowels that you found in the
 previous problem?
+
+names.map(function(name){
+    return name.split("").filter(function(element){
+      return element === "a" || element === "e" || element === "i" ||
+             element === "o" || element === "u"
+    }).length
+}).reduce(function(count, current){
+   if (current === 6){
+      count += 1 }
+   return count
+},0)
+
+=> 1
+
+names.map(function(name){
+    return name.split("").filter(function(element){
+      return element === "a" || element === "e" || element === "i" ||
+             element === "o" || element === "u"
+    }).length
+}).filter(function(count){
+   return count === 6
+}).length
+
+=> 1
