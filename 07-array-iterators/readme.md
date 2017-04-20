@@ -562,23 +562,38 @@ following questions.
 1. How many baby names start with the letter 'z'?
 
 names.filter(function(name){
+
     return name[0] === "z";
+
 });
 
-=> ["zayden", "zahara", "zoie", "zaria", "zlaty", "zeldy", "zain", "zainab", "zalmen", "zissel", "zackary", "zaire", "zara", "zev", "zion", "zissy", "zoe", "zoey", "zachary"]
+=> ["zayden", "zahara", "zoie", "zaria", "zlaty", "zeldy",
+   "zain", "zainab", "zalmen", "zissel", "zackary", "zaire",
+  "zara", "zev", "zion", "zissy", "zoe", "zoey", "zachary"]
 
 names.filter(function(name){
+
   return name[0] === "z";
+
 }).length
 
 => 19
 
 2. How many baby names have the letter 'z' in them anywhere?
 
-names.filter(function(name){ return name.indexOf("z") > -1; });
+names.filter(function(name){
+
+  return name.indexOf("z") > -1;
+
+  });
+
 ["zayden", "ezequiel", "litzy", "charlize", "zahara", "yechezkel", "luz", "tziporah", "tzippy", "zoie", "zaria", "nazir", "tzivia", "zlaty", "yaretzi", "yitzchak", "eluzer", "enzo", "jahzara", "ezriel", "denzel", "azriel", "zeldy", "roizy", "benzion", "hamza", "hazel", "jazlene", "lazer", "zain", "zainab", "zalmen", "zissel", "yitzchok", "zackary", "zaire", "zara", "zev", "zion", "zissy", "zoe", "vincenzo", "zoey", "tzvi", "tzirel", "tenzin", "raizy", "raizel", "mckenzie", "makenzie", "mackenzie", "lorenzo", "lizbeth", "liz", "jazmine", "jazmin", "jazlyn", "izabella", "ezra", "ezekiel", "elizabeth", "eliza", "eliezer", "aliza", "zachary"]
 
-names.filter(function(name){ return name.indexOf("z") > -1; }).length;
+names.filter(function(name){
+
+  return name.indexOf("z") > -1;
+
+}).length;
 
 //  => 65
 
@@ -586,24 +601,37 @@ names.filter(function(name){ return name.indexOf("z") > -1; }).length;
 first letter upper-case.
 
 names.filter(function(name){
+
   return name.indexOf("w") > -1;
+
 }).map(function(word){
+
   return word[0].toUpperCase() + word.slice(1) });
 
-// =>["Gwendolyn", "Walter", "Weston", "Willow", "Rashawn", "Whitney", "Tyshawn", "Darwin", "Hawa", "Sawyer", "Willie", "Wyatt", "Winnie", "Wilson", "Wilmer", "William", "Wesley", "Wendy", "Shawn", "Rowan", "Owen", "Maxwell", "Matthew", "Mathew", "Lawrence", "Edwin", "Edward", "Drew", "Andrew"]
+// =>["Gwendolyn", "Walter", "Weston", "Willow", "Rashawn", "Whitney",
+     "Tyshawn", "Darwin", "Hawa", "Sawyer", "Willie", "Wyatt", "Winnie",
+     "Wilson", "Wilmer", "William", "Wesley", "Wendy", "Shawn", "Rowan",
+     "Owen", "Maxwell", "Matthew", "Mathew", "Lawrence", "Edwin",
+     "Edward", "Drew", "Andrew"]
 
 4. Do all of the names contain vowels?
 
 names.every(function(name){
+
     return name.indexOf("a") > -1 || name.indexOf("o") > -1 || name.indexOf("u") > -1 ||
+
            name.indexOf("e") > -1 || name.indexOf("i") > -1
+
 })
 
  => false
 
  names.filter(function(name){
+
     return name.indexOf("a") === -1 && name.indexOf("o") === -1 && name.indexOf("u") === -1 &&
+
            name.indexOf("e") === -1 && name.indexOf("i") === -1
+
  })
 
 => ["brynn", "sky", "ty"]
@@ -612,13 +640,17 @@ names.every(function(name){
 5. Are there any names that have only two letters?
 
 names.some(function(name){
+
    return name.length === 2
+
 })
 
  => true
 
  names.filter(function(name){
+
    return name.length === 2
+
 })
 
   => ["ty"]
@@ -626,13 +658,17 @@ names.some(function(name){
 6. Is your name in the list?
 
 names.some(function(name){
+
     return name === "mariia"
+
 })
 
  => false
 
 names.some(function(name){
+
     return name === "mary"
+
 })
 
  => true
@@ -640,11 +676,17 @@ names.some(function(name){
 7. Find the name that would come first alphabetically.
 
 names.reduce(function(firstAlphabetical, currentName){
+
   if (firstAlphabetical< currentName){
+
     return firstAlphabetical;
+
   } else {
+
     return currentName;
+
   }
+
 })
 
 => "aaden"
@@ -653,21 +695,33 @@ names.reduce(function(firstAlphabetical, currentName){
 8. How many times does the letter 'z' appear in the list?
 
 names.reduce(function (arr, element) {
+
     arr = arr.concat(element.split(""))
+
     return arr
+
   }, []).filter(function (element) {
+
     return element === "z"
+
     }).length
 
  => 65
 
 names.reduce(function(count, name) {
+
    name.split("").filter(function (element) {
+
   	  if (element === "z"){
+
          count = count + 1
+
       }
+
    })
+
     return count;
+
 }, 0)
 
  => 65
@@ -675,26 +729,44 @@ names.reduce(function(count, name) {
 9. What is the maximum number of vowels in any name?
 
 names.map(function(name){
+
     return name.split("").reduce(function(count, element){
+
       if (element === "a" || element === "e" || element === "i" ||
+
+
           element === "o" || element === "u"){
+
           count = count + 1
+
       }
+
     return count
+
 },0)
+
 }).reduce(function(maximumOfVowels, currentCount){
+
     return (maximumOfVowels > currentCount) ? maximumOfVowels : currentCount
+
 })
 
  => 6
 
  names.map(function(name){
+
     return name.split("").filter(function(element){
+
       return element === "a" || element === "e" || element === "i" ||
+
              element === "o" || element === "u"
+
     }).length
+
 }).reduce(function(maximumOfVowels, currentCount){
+
     return (maximumOfVowels > currentCount) ? maximumOfVowels : currentCount
+
 })
 
  => 6
@@ -703,25 +775,41 @@ names.map(function(name){
 previous problem?
 
 names.map(function(name){
+
     return name.split("").filter(function(element){
+
       return element === "a" || element === "e" || element === "i" ||
+
              element === "o" || element === "u"
+
     }).length
+
 }).reduce(function(count, current){
+
    if (current === 6){
+
       count += 1 }
+
    return count
+
 },0)
 
 => 1
 
 names.map(function(name){
+
     return name.split("").filter(function(element){
+
       return element === "a" || element === "e" || element === "i" ||
+
              element === "o" || element === "u"
+
     }).length
+
 }).filter(function(count){
+
    return count === 6
+
 }).length
 
 => 1
