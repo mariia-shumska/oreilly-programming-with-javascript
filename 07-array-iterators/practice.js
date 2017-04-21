@@ -8,7 +8,12 @@
 //      reverse([ "hello", "world" ]);
 //      //=> [ "world", "hello" ]
 //
-var reverse = function () {
+var reverse = function (arr) {
+  return arr.reduce(function(first, second){
+//    console.log("first " + first);
+//    console.log("second " + second);
+    return [second].concat(first)
+  },[])
 };
 
 // Did you know that you could have arrays within arrays? This is perfectly
@@ -39,7 +44,19 @@ var reverse = function () {
 //
 // You'll also want to use the `concat` method to make this work.
 //
-var flatten = function () {
+var flatten = function (arrayOfArrays) {
+  return arrayOfArrays.reduce(function(element, current){
+//    console.log("element " + element);
+//    console.log("current " + current);
+    return element.concat(current)
+  },[])
+};
+
+// solution variant
+var flatten1 = function (arrayOfArrays) {
+  return arrayOfArrays.reduce(function(element, current){
+    return Array.isArray(current) ? element.concat(current) : element.concat([current]) //// !!!  ternary conditional operator
+  },[])
 };
 
 // Using `range` and a chain of array methods, write a function that accepts a
