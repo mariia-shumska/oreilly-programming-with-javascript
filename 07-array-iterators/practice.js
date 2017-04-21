@@ -1,3 +1,23 @@
+var range = function (number) {
+  if (typeof number !== "number"){
+    throw "arguments to range must be numbers"
+  }
+  var list = [];
+  var i = 0;
+  while (i <= number){
+    list.push(i);
+    i = i + 1;
+  }
+  return list;
+};
+
+var isVowel = function (letter) {
+    var letterLC = letter.toLowerCase();
+    return letterLC === "a" || letterLC === "e" || letterLC === "i" ||
+          letterLC === "o" || letterLC === "u";
+};
+
+
 // In one of the previous sections, we had an practice problem where you had to
 // reverse a string. Do the same thing with an array, but use the `reduce` and
 // `concat` methods to avoid local variables.
@@ -72,8 +92,24 @@ var flatten1 = function (arrayOfArrays) {
 //     sumOfMultiplesOf3And5(0);
 //     //=> 0
 //
-var sumOfMultiplesOf3And5 = function () {
-};
+var sumOfMultiplesOf3And5 = function (maxNum) {
+  return range(maxNum).reduce(function(sum, current){
+    if (current % 3 === 0 || current % 5 ===0){
+      sum = sum + current;
+    } return sum;
+  },0)
+}
+
+//solution variant
+var sumOfMultiplesOf3And5Solution = function (maxNum) {
+  return range(maxNum).filter(function(number){
+    return number % 3 === 0 || number % 5 === 0
+  }).reduce(function(sum, current){
+    return sum = sum + current
+  },0)
+}
+
+
 
 // Write a function called atLeastOneVowel that accepts a string and
 // returns true if that word contains at least one vowel. Do not use a
@@ -88,8 +124,22 @@ var sumOfMultiplesOf3And5 = function () {
 //     atLeastOneVowel("sdfjkl");
 //     //=> false
 //
-var atLeastOneVowel = function () {
+var atLeastOneVowel1 = function (str) {
+  return str.split("").some(function(letter){
+    return letter === "a" || letter === "e" || letter === "i" ||
+           letter === "o" || letter ==="u"  })
 };
+
+var atLeastOneVowel2 = function (str) {
+  return str.split("").some(function(letter){
+    return isVowel(letter)})
+};
+
+//solution variant
+var atLeastOneVowel = function (str) {
+  return str.split("").some(isVowel)
+};
+
 
 // Write a function that accepts a list of tweets, and returns the
 // longest tweet that contains the word `awesome` or the empty string
@@ -101,7 +151,21 @@ var atLeastOneVowel = function () {
 //     longestAwesomeTweet([ "hello", "world" ]);
 //     //=> ""
 //
-var longestAwesomeTweet = function () {
+var longestAwesomeTweet = function(tweets){
+  var awesomeTweets =  tweets.filter(function(tweet){
+    return tweet.indexOf("awesome") > -1
+  })
+  if (awesomeTweets.length === 0){
+    return ""
+  } else {
+  return awesomeTweets.reduce(function(longest, current){
+      if (longest.length > current.length) {
+        return longest
+      } else {
+        return current
+      }
+  })
+  }
 };
 
 // Write a function that accepts an array of HTMLElements and returns an
