@@ -17,6 +17,24 @@ var isVowel = function (letter) {
           letterLC === "o" || letterLC === "u";
 };
 
+var isHTMLElement = function (htmlElement) {
+  var openTag = htmlElement.slice(htmlElement.indexOf("<")+1, htmlElement.indexOf(">"));
+  var closeTag = htmlElement.slice(htmlElement.lastIndexOf("</")+2, htmlElement.lastIndexOf(">"))
+  return openTag === closeTag && htmlElement.charAt(0)==="<" && htmlElement.charAt(htmlElement.length -1)===">"
+}
+
+var tagContent = function(htmlElement){
+  if (!isHTMLElement(htmlElement)){
+    throw "Isn't htmlElement"
+  } else {
+    return htmlElement.slice(htmlElement.indexOf(">")+1, htmlElement.lastIndexOf("</") )
+  }
+};
+
+var randUpTo = function (maxNumber) {
+  return Math.floor(Math.random()*maxNumber);
+};
+
 
 // In one of the previous sections, we had an practice problem where you had to
 // reverse a string. Do the same thing with an array, but use the `reduce` and
@@ -177,7 +195,15 @@ var longestAwesomeTweet = function(tweets){
 //     elementsToContent([ "<h1>This is an important heading!</h1>", "<h5>this is not as important</h5>" ]);
 //     //=> [ "This is an important heading!", "this is not as important" ]
 //
-var elementsToContent = function () {
+var elementsToContent = function (htmlElements) {
+  return htmlElements.map(function(html){
+    return tagContent(html)
+  })
+};
+
+//solution variant
+var elementsToContent1 = function (htmlElements) {
+  return htmlElements.map(tagContent)
 };
 
 // In a previous section, we created a function called `randUpTo` that
@@ -193,7 +219,16 @@ var elementsToContent = function () {
 //     randomArray(5, 10);
 //     //=> [ 2, 0, 3, 9, 10 ]
 //
-var randomArray = function () {
+var randomArray = function (length, max) {
+   return range(length-1).map(function(elem){
+     return elem = randUpTo(max)
+   })
+};
+
+var randomArray1 = function (length, max) {
+   return range(length-1).map(function(elem){
+     return randUpTo(max)
+   })
 };
 
 // Using the `randomNums` function from above, write a function called
@@ -207,5 +242,9 @@ var randomArray = function () {
 // randomElements([ "clubs", "diamonds", "hearts", "spades" ], 3);
 // //=> [ "hearts", "diamonds", "hearts" ]
 //
-var randomElements = function () {
+var randomElements = function (arr, n) {
+  //console.log(randomArray(n, arr.length))
+  return randomArray(n, arr.length).map(function(index){
+    return arr[index];
+  })
 };
