@@ -42,3 +42,15 @@ var user = {
     "this is third tweet!"
   ]
 };
+
+var simpleTweet = {
+  "text" : "htis is an awesome tweet lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol lol",
+  "screen_name" : "samsamovich"
+};
+
+var isTweet = function (tweet){
+  return typeof tweet === "object" &&
+      typeof tweet.text === "string" &&
+      typeof tweet.screen_name === "string" &&
+      tweet.text.length <= 140;
+};

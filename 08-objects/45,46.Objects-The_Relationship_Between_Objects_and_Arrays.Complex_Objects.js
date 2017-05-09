@@ -48,3 +48,13 @@ user.tweets.forEach(function(tweet){
 VM612:2 this is a tweet.
 VM612:2 this is another tweet!
 VM612:2 this is third tweet!
+
+// video #47
+isTweet(simpleTweet)
+true
+isTweet({})
+true
+isTweet(9)
+false
+isTweet([])
+true
