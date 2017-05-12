@@ -424,9 +424,114 @@ questions.
 
 1. Which suit appears the most frequently?
 
+var suitUnic = [];
+
+cards.forEach(function(element){
+  if(suitUnic.indexOf(element.suit) === -1){
+    suitUnic = suitUnic.concat(element.suit);
+  }
+})
+
+suitUnic
+=> ["clubs", "diamonds", "hearts", "spades"]
+
+var suitAndCount = {};
+
+suitUnic.reduce(function(some, current){
+  count = 0;
+  cards.forEach(function(element){
+    if(element.suit === current){
+      count = count +1}
+  suitAndCount[current] = count;
+  })
+},[])
+
+suitAndCount
+Object {clubs: 1238, diamonds: 1252, hearts: 1257, spades: 1253}
+
+Object.keys(suitAndCount).reduce(function(max, current){
+  if (suitAndCount[max] < suitAndCount[current]){
+    return current;
+  } else {
+    return max;
+  }
+})
+
+=> "hearts"
+
 2. Which rank appears the most frequently?
 
+var rankUnic = [];
+
+cards.forEach(function(element){
+  if(rankUnic.indexOf(element.rank) === -1){
+    rankUnic = rankUnic.concat(element.rank);
+  }
+})
+
+rankUnic
+=> ["six", "jack", "eight", "ace", "three", "king", "nine", "five", "ten", "seven", "queen", "four", "two"]
+
+
+var rankAndCount = {};
+
+rankUnic.reduce(function(some, current){
+  count = 0;
+  cards.forEach(function(element){
+    if(element.rank === current){
+      count = count +1}
+  rankAndCount[current] = count;
+  })
+},[])
+
+rankAndCount
+=> Object {six: 373, jack: 360, eight: 371, ace: 402, three: 368…}
+
+=> Object
+       ace: 402
+       eight: 371
+       five: 399
+       four: 382
+       jack: 360
+       king: 388
+       nine: 416
+       queen: 421
+       seven: 359
+       six: 373
+       ten: 407
+       three: 368
+       two: 354
+       __proto__: Object
+
+Object.keys(rankAndCount).reduce(function(max, current){
+  if (rankAndCount[max] < rankAndCount[current]){
+    return current;
+  } else {
+    return max;
+  }
+})
+
+=> "queen"
+
 3. How many times does the ace of spades appear? What about the two of clubs?
+
+var countOf = function (suitOfCard, rankOfCard){
+    var count = 0;
+    cards.forEach(function(element){
+      if(element.suit === suitOfCard && element.rank === rankOfCard){
+        count = count +1; }
+    });
+    return count;
+};
+undefined
+
+countOf("spades", "ace")
+
+=> 105
+
+countOf("clubs", "two")
+
+=> 91
 
 4. Can you think of a way to determine which card appears the most frequently?
 Obviously, you can repeat the process above for all 52 combinations, but is
@@ -461,4 +566,3 @@ their screen names?
 
 10. What is the average number of followers among those users associated with
 tweets that contain "lol" (case insensitive)?
-
