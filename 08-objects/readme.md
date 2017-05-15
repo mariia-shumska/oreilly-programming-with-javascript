@@ -424,6 +424,7 @@ questions.
 
 1. Which suit appears the most frequently?
 
+```
 var suitUnic = [];
 
 cards.forEach(function(element){
@@ -458,9 +459,11 @@ Object.keys(suitAndCount).reduce(function(max, current){
 })
 
 => "hearts"
+```
 
 2. Which rank appears the most frequently?
 
+```
 var rankUnic = [];
 
 cards.forEach(function(element){
@@ -512,9 +515,10 @@ Object.keys(rankAndCount).reduce(function(max, current){
 })
 
 => "queen"
-
+```
 3. How many times does the ace of spades appear? What about the two of clubs?
 
+```
 var countOf = function (suitOfCard, rankOfCard){
     var count = 0;
     cards.forEach(function(element){
@@ -532,11 +536,104 @@ countOf("spades", "ace")
 countOf("clubs", "two")
 
 => 91
+```
 
 4. Can you think of a way to determine which card appears the most frequently?
 Obviously, you can repeat the process above for all 52 combinations, but is
 there an automated way you can do it? By the end of all of the subsequent
 exercises, you should be able to do this using a single function.
+
+```
+var cardCount = cards.map(function(element){
+  return element.rank + " of " + element.suit
+}).reduce(function(cardUnic, current){
+  if(cardUnic.indexOf(current) === -1){
+    cardUnic = cardUnic.concat(current);
+  }
+  return cardUnic
+},[]).reduce(function(cardCount, oneCard){
+  var count = 0;
+  cards.map(function(element){
+  return element.rank + " of " + element.suit
+}).forEach(function(element){
+   if (element === oneCard){
+      count = count + 1;
+   }
+ cardCount[oneCard] = count;
+})
+ return cardCount  
+},{})
+
+cardCount
+==>
+Object {six of clubs: 92, jack of diamonds: 92, eight of diamonds: 109, ace of clubs: 98, three of hearts: 97…}
+
+Object
+ace of clubs : 98
+ace of diamonds : 111
+ace of hearts : 88
+ace of spades : 105
+eight of clubs : 98
+eight of diamonds : 109
+eight of hearts : 86
+eight of spades : 78
+five of clubs : 90
+five of diamonds : 101
+five of hearts : 108
+five of spades : 100
+four of clubs : 87
+four of diamonds : 101
+four of hearts : 101
+four of spades : 93
+jack of clubs : 90
+jack of diamonds : 92
+jack of hearts : 89
+jack of spades : 89
+king of clubs : 98
+king of diamonds : 88
+king of hearts : 96
+king of spades : 106
+nine of clubs : 104
+nine of diamonds : 82
+nine of hearts : 114
+nine of spades : 116
+queen of clubs : 109
+queen of diamonds : 111
+queen of hearts : 99
+queen of spades : 102
+seven of clubs : 89
+seven of diamonds : 79
+seven of hearts : 103
+seven of spades : 88
+six of clubs : 92
+six of diamonds : 101
+six of hearts : 94
+six of spades : 86
+ten of clubs : 97
+ten of diamonds : 107
+ten of hearts : 92
+ten of spades : 111
+three of clubs : 95
+three of diamonds : 84
+three of hearts : 97
+three of spades : 92
+two of clubs : 91
+two of diamonds : 86
+two of hearts : 90
+two of spades : 87
+__proto__ :Object
+
+Object.keys(cardCount).reduce(function(max, current){
+  var maxCount = max;
+  if (cardCount[maxCount]< cardCount[current]){
+   maxCount = current
+  }
+  return maxCount;
+})
+
+=> "nine of spades"
+
+```
 
 For the next set of questions, open up the file `tweets.html` in Chrome, then
 open the developer console. There should be a variable defined called
