@@ -635,6 +635,41 @@ Object.keys(cardCount).reduce(function(max, current){
 
 ```
 
+```
+var maxCardCount = function(cards){
+  var cardCount = cards.map(function(element){
+    return element.rank + " of " + element.suit
+  }).reduce(function(cardUnic, current){
+    if(cardUnic.indexOf(current) === -1){
+      cardUnic = cardUnic.concat(current);
+    }
+  return cardUnic
+  },[]).reduce(function(cardCount, oneCard){
+    var count = 0;
+    cards.map(function(element){
+      return element.rank + " of " + element.suit
+    }).forEach(function(element){
+      if (element === oneCard){
+        count = count + 1;
+      }
+   cardCount[oneCard] = count;
+    })
+   return cardCount  
+  },{})
+
+  return Object.keys(cardCount).reduce(function(max, current){
+  var maxCount = max;
+  if (cardCount[maxCount]< cardCount[current]){
+   maxCount = current
+  }
+  return maxCount;
+  })
+}
+undefined
+maxCardCount(cards)
+"nine of spades"
+```
+
 For the next set of questions, open up the file `tweets.html` in Chrome, then
 open the developer console. There should be a variable defined called
 `tweets`. You can confirm this by typing it at the console.
@@ -649,11 +684,59 @@ of Sunday, October 26, 2014. Using our favorite array methods (`map`, `filter`,
 5. Create an array that only contains only the tweet texts that contain the word
 "awesome" (upper or lower case). How many tweets are in the array?
 
+```
+tweets.map(function(allTweets){
+  return allTweets.text
+}).filter(function(text){
+  if (text.toLowerCase().indexOf("awesome") > -1){
+    return text
+  }
+})
+
+= >
+["Check out this awesome new app! Guess The Emoji on the App Store! http://t.co/JhhelBQXpr via @randomlogicgame", "@TDavenport_PPI Awesome!", "#Games - 10 awesome new things you need to know about Super Smash Bros for Wii U: #SuperSmashB... http://t.co/53H0pMKkpH - #Game #Gaming"]0: "Check out this awesome new app! Guess The Emoji on the App Store! http://t.co/JhhelBQXpr via @randomlogicgame"1: "@TDavenport_PPI Awesome!"2: "#Games - 10 awesome new things you need to know about Super Smash Bros for Wii U: #SuperSmashB... http://t.co/53H0pMKkpH - #Game #Gaming"length: 3__proto__: Array[0]
+```
+
+```
+tweets.map(function(allTweets){
+  return allTweets.text
+}).filter(function(text){
+  if (text.toLowerCase().indexOf("awesome") > -1){
+    return text
+  }
+}).length
+
+=> 3
+```
+
+```
+tweets.filter(function(allTweets){
+  return allTweets.text.toLowerCase().indexOf("awesome") !== -1
+}).length
+
+=> 3
+```
+
 6. How many of the tweets contains URLs in them? (You can just look for "http:"
 as a substring).
 
-7. How many of the tweets are associated with users who have underscores ("_")
-in their screen name?
+```
+tweets.filter(function(allTweets){
+  return allTweets.text.toLowerCase().indexOf("http:") > -1
+}).length
+
+=> 176
+```
+
+7. How many of the tweets are associated with users who have underscores ("_") in their screen name?
+
+```
+tweets.filter(function(allTweets){
+  return allTweets.user.screen_name.indexOf("_") > -1
+}).length
+
+=> 138
+```
 
 8. What is the screen name of the user with the most followers?
 
