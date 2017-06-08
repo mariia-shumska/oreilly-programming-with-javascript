@@ -15,7 +15,17 @@
 //     isUser({ "age": 37, "name":"Semmy Purewal", "screen_name":"semmypurewal" });
 //     //=> false
 //
-var isUser = function () {
+
+// first variant
+var isUser1 = function (potentialUser) {
+  var keys = Object.keys(potentialUser)
+  return typeof(potentialUser) === "object" && keys[0] === "name" && keys[1] === "screen_name"
+};
+
+// second variant
+var isUser = function (potentialUser) {
+  return typeof(potentialUser) === "object" && Object.keys(potentialUser)[0] === "name" &&
+         Object.keys(potentialUser)[1] === "screen_name" && Object.keys(potentialUser).length === 2
 };
 
 
@@ -33,7 +43,11 @@ var isUser = function () {
 // Write this function. It should throw an error if the user is not a valid
 // user. It might be helpful to use some functions from previous sections.
 //
-var userToDiv = function () {
+var userToDiv = function (user) {
+  if (!isUser(user)){
+    throw "The argument is not a user object"
+  }
+  return "<div><h1>" + user.name + "</h1><h2>" + user.screen_name + "</h2></div>"
 };
 
 
@@ -59,7 +73,8 @@ var userToDiv = function () {
 //     });
 //     //=> "<div><h1>Semmy Purewal</h1><h2>semmypurewal</h2><ul><li>this is a tweet.</li><li>this is another tweet</li></ul></div>"
 //
-var userWithTweetsToDiv = function () {
+var userWithTweetsToDiv = function (user) {
+  return "<div><h1>" + user.name + "</h1><h2>" + user.screen_name + "</h2><ul><li>" + user.tweets[0] + "</li><li>" + user.tweets[1] + "</li></ul></div>"
 };
 
 
@@ -79,5 +94,24 @@ var userWithTweetsToDiv = function () {
 // There are several ways you can do it, but it might be interesting to try it with
 // the `reduce` method that starts with an empty object.
 //
-var frequencies = function () {
+var frequencies = function (list) {
+  var unicWords = [];
+  var stringCount = {};
+
+  list.forEach(function(word){
+    if (unicWords.indexOf(word) === -1){
+      unicWords = unicWords.concat(word)
+    }
+  })
+
+  unicWords.forEach(function(word){
+    var count = 0;
+    list.forEach(function(all){
+      if (word === all){
+        count = count + 1;
+      }
+    })
+    stringCount[word] = count;
+  })
+  return stringCount;
 };
