@@ -740,9 +740,90 @@ tweets.filter(function(allTweets){
 
 8. What is the screen name of the user with the most followers?
 
-9. The "statuses_count" property of a user object contains the number of tweets
-that the user has tweeted. How many users have tweeted exactly 1 tweet? What are
-their screen names?
+```
+var namePlusFollowers = {}
+
+tweets.map(function(element){
+ return namePlusFollowers[element.user.screen_name] = element.user.followers_count
+})
+=>Array[500]
+
+namePlusFollowers
+Object {AHesubekti1: 1, roroposec: 48, erica__ellyson: 1821, subtlysugoi: 652, juancoloperez: 199…}
+```
+
+```
+Object.keys(namePlusFollowers).reduce(function(key, current){
+ if (namePlusFollowers[key] > namePlusFollowers[current]){
+    return key
+} else {
+    return current
+}
+})
+=> "HannahSimone"
+```
+
+```
+var maxFollowersCount = function(tweets){
+  var namePlusFollowers = {};
+
+  tweets.map(function(element){
+    return namePlusFollowers[element.user.screen_name] = element.user.followers_count})
+
+  var nameOfMaxFollowers = Object.keys(namePlusFollowers).reduce(function(key, current){
+    var maxFollowers = key;
+    if (namePlusFollowers[key] < namePlusFollowers[current]){
+      maxFollowers = current;
+    }
+    return maxFollowers;
+  })
+
+  return "screen_name: " + nameOfMaxFollowers + "\n" +" followers_count: " + namePlusFollowers[nameOfMaxFollowers];
+}
+
+maxFollowersCount(tweets)
+=> screen_name: HannahSimone
+   followers_count: 207124
+```
+
+
+9. The "statuses_count" property of a user object contains the number of tweets that the user has tweeted. How many users have tweeted exactly 1 tweet? What are their screen names?
+
+```
+tweets.filter(function(element){
+  return element.user.statuses_count === 1
+}).length
+
+=> 2
+```
+
+```
+tweets.filter(function(element){
+  return element.user.statuses_count === 1
+}).forEach(function(element){
+  console.log(element.user.screen_name + " - " + element.user.statuses_count)
+  })
+
+=>  asukab3bn4 - 1
+    katashi4d24y - 1
+```
 
 10. What is the average number of followers among those users associated with
 tweets that contain "lol" (case insensitive)?
+
+```
+tweets.filter(function(element){
+  return element.text.toLowerCase().indexOf("lol") > -1
+}).length
+=> 15
+```
+
+```
+Math.floor(tweets.filter(function(element){
+  return element.text.toLowerCase().indexOf("lol") > -1
+}).reduce(function(sum,current){
+  return sum = sum + current.user.followers_count
+},0)/15)
+
+=> 752
+```
